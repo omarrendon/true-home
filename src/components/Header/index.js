@@ -4,13 +4,12 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <nav>
-      {/* <img src={logo} alt="React Logo" /> */}
       <ul>
         <li>
-          <NavLink to="/" activeClassName="nav-active" exact>Home</NavLink>
+          <NavLink to="/" exact='true'>Home</NavLink>
         </li>
         <li>
-          <NavLink to="/reservaciones" activeClassName="nav-active" exact>Reservaciones</NavLink>
+          <NavLink to="/reservaciones" exact='true'>Reservaciones</NavLink>
         </li>
       </ul>
     </nav>
