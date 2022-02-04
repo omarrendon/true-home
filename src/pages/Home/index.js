@@ -1,8 +1,9 @@
-import { SearchBar } from 'components/SearchBarFlight';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { fakeData } from "../../example";
+import { SearchBar } from 'components/SearchBarFlight';
+import ScheduleList from 'components/ScheduleList';
+
 
 const Home = () => {
   
@@ -13,6 +14,7 @@ const Home = () => {
         <SearchBar.Origin />
         <SearchBar.Destiny />
       </SearchBar>
+      <ScheduleList />
     </div>
   );
 };

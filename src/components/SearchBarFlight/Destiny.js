@@ -22,7 +22,6 @@ const Destiny = () => {
         name='origin'
         id='origin'
         onChange={handleSelectDestiny}
-        value={''}
         disabled={origin ? false : true}
       >
         <option value={''} selected>Selecciona un destino</option>
