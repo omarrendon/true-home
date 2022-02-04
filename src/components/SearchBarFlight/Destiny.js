@@ -1,18 +1,19 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { fakeData } from 'example';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectDestiny } from 'actions/flightSelectedActions';
 
 const Destiny = () => {
-  const [dataOrigin, setdataOrigin] = useState([]);
-  const [destinySelected, setDestinySelected] = useState('');
-
+  const { origin } = useSelector(state => state.flightSelect);
+  const dispatch = useDispatch();
+  const [destinyData, setDestinyData] = useState([]);
+  
   useEffect(() => {
-    setdataOrigin(fakeData);
-  }, []);
+    const cleanDestiny = fakeData.filter((element) => element.city !== origin);
+    setDestinyData(cleanDestiny);
+  }, [origin]);
 
-  const handleSelectDestiny = (event) => setDestinySelected(event.target.value);
-
-  console.log('FAKE DATA ORIGIN', dataOrigin);
-  console.log('Destiny SELECTED', destinySelected);
+  const handleSelectDestiny = (event) => dispatch(selectDestiny(event.target.value));
 
   return (
     <>
@@ -22,10 +23,10 @@ const Destiny = () => {
         id='origin'
         onChange={handleSelectDestiny}
         value={''}
-        disabled
+        disabled={origin ? false : true}
       >
         <option value={''} selected>Selecciona un destino</option>
-        {dataOrigin.map((element) => (
+        {destinyData.map((element) => (
           <Fragment key={element.id}>
             <option value={element.city}>
               {element.city}

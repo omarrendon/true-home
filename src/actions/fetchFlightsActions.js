@@ -17,7 +17,7 @@ export const fetchFlights = (data) => {
       dispacth(loading());
     } catch (error) {
       console.log('ERROR IN FETCH FLIGHTS => ', error);
-      dispacth(fetchFlightsFail(error));
+      dispacth(fetchFlightsError(error));
     }
   };
 }
@@ -27,7 +27,7 @@ const fetchFlightsSuccess = (data) => ({
   payload: data
 });
 
-const fetchFlightsFail = (error) => ({
+const fetchFlightsError = (error) => ({
   type: FETCH_FLIGHTS_ERROR,
   payload: error
 });

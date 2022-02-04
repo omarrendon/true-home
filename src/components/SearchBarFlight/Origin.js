@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { fakeData } from 'example';
+import { useDispatch } from 'react-redux';
+import { selectOrigin } from 'actions/flightSelectedActions';
 
 const Origin = () => {
+  const dispatch = useDispatch();
   const [dataOrigin, setdataOrigin] = useState([]);
   const [originSelected, setOriginSelected] = useState('');
 
@@ -9,10 +12,10 @@ const Origin = () => {
     setdataOrigin(fakeData);
   }, []);
 
-  const handleSelectOrigin = (event) => setOriginSelected(event.target.value);
+  const handleSelectOrigin = (event) => dispatch(selectOrigin(event.target.value));
 
   console.log('FAKE DATA ORIGIN', dataOrigin);
-  console.log('ORIGIN SELECTED', originSelected);
+  // console.log('ORIGIN SELECTED', originSelected);
 
   return (
     <>
