@@ -14,8 +14,6 @@ const Origin = () => {
 
   const handleSelectOrigin = (event) => dispatch(selectOrigin(event.target.value));
 
-  console.log('FAKE DATA ORIGIN', dataOrigin);
-
   return (
     <>
       <label>Origen</label>

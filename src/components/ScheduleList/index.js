@@ -13,15 +13,13 @@ const ScheduleList = () => {
     setScheduleData(schedules[0]);
   }, [destiny]);
 
-  console.log('schedule', scheduleData);
-
   return (
     <>
       {
         scheduleData?.length > 0 ? (
           scheduleData.map(({day, schedule}) => (
             <Fragment key={day}>
-              <ScheduleCard day={day} schedule={schedule} />
+              <ScheduleCard day={day} schedule={schedule}/>
             </Fragment>
           ))
         ) : null

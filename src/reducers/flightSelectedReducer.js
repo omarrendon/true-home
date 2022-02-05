@@ -2,6 +2,7 @@ import {
   CLOSE_MODALS__FLIGHT_SELECT,
   LOADING_FLIGHT_SELECT,
   SELECT_DESTINY_FLIGHT_SELECT_SUCCESS,
+  SELECT_FLIGHT,
   SELECT_ORIGIN_FLIGHT_SELECT_SUCCESS,
 } from "actions/flightSelectedActions";
 
@@ -20,10 +21,30 @@ const initialState = {
     show: false,
     message: ''
   },
+  flights: [],
 };
 
 const flightSelectedReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SELECT_FLIGHT:
+      const flightToEdit = state.flights.find((item) => item.index === action.payload.index && item.day === action.payload.day);
+
+      if (flightToEdit) {
+        return {
+          ...state,
+          isLoading: false,
+          flights: state.flights.map((item) =>
+            item.index === action.payload.index && item.day === action.payload.day
+              ? { ...item, passengers: action.payload.passengers}
+              : item
+          )
+        }
+      }
+      else return {
+        ...state,
+        isLoading:false,
+        flights: [...state.flights, action.payload]
+      };
     case SELECT_DESTINY_FLIGHT_SELECT_SUCCESS:
       return {
         ...state,
