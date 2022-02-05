@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const Reservation = () => {
   const { flights } = useSelector(state => state.flightSelect);
-  console.log('state', flights);
+  // console.log('state', flights);
   return (
     <div>
       Reservation page
