@@ -46,7 +46,7 @@ const flightSelectedReducer = (state = initialState, action) => {
         isLoading: false,
         flights: [...state.flights, action.payload]
       };
-    case SELECT_FLIGHT_REMOVE:
+    case SELECT_FLIGHT_REMOVE: 
       const { index} = action.payload;
       const items = state.flights.filter((item) => item.index !== index);
       return {
