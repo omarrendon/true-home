@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectDestiny } from 'actions/flightSelectedActions';
 
 const Destiny = () => {
-  const { origin } = useSelector(state => state.flightSelect);
+  const { origin, destiny } = useSelector(state => state.flightSelect);
   const dispatch = useDispatch();
   const [destinyData, setDestinyData] = useState([]);
   
@@ -24,7 +24,7 @@ const Destiny = () => {
         onChange={handleSelectDestiny}
         disabled={origin ? false : true}
       >
-        <option value={''} selected>Selecciona un destino</option>
+        <option value={''} selected>{destiny ? destiny : 'Selecciona un destino'}</option>
         {destinyData.map((element) => (
           <Fragment key={element.id}>
             <option value={element.city}>

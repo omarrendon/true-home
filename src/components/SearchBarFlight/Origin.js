@@ -1,12 +1,14 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { fakeData } from 'example';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectOrigin } from 'actions/flightSelectedActions';
 
 const Origin = () => {
   const dispatch = useDispatch();
+  const { origin } = useSelector(state => state.flightSelect);
   const [dataOrigin, setdataOrigin] = useState([]);
-  const [originSelected, setOriginSelected] = useState('');
+  console.log('ORIGIN componet', origin);
 
   useEffect(() => {
     setdataOrigin(fakeData);
@@ -22,7 +24,7 @@ const Origin = () => {
         id='origin'
         onChange={handleSelectOrigin}
       >
-        <option value selected>Selecciona tu origen</option>
+        <option value selected>{origin ? origin : 'Selecciona tu origen'}</option>
         {dataOrigin.map((element) => (
           <Fragment key={element.id}>
             <option value={element.city}>

@@ -1,5 +1,5 @@
-import { removeFlight } from 'actions/flightSelectedActions';
 import React, { useEffect, useState } from 'react';
+import { removeFlight } from 'actions/flightSelectedActions';
 import { useDispatch } from 'react-redux';
 
 const PriceCard = ({
