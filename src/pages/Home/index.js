@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import { SearchBar } from 'components/SearchBarFlight';
 import ScheduleList from 'components/ScheduleList';
+import style from './home.module.css';
+
 
 
 const Home = () => {
-  const { origin, destiny } = useSelector(state => state.flightSelect);
-  // console.log('ORIGIN HOME', origin);
-  // console.log('destiny HOME', destiny);
+
   return (
-    <div>
-      Pagina de inicio
+    <div className={style.homeContainer}>
+      <h2 className={style.titleHome}>Selecciona tu vuelo</h2>
       <SearchBar>
         <SearchBar.Origin />
         <SearchBar.Destiny />

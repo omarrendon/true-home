@@ -1,0 +1,55 @@
+.nav {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.nav div {
+  margin: 0 20px;
+}
+.icon {
+  height: 60px;
+  width: 100%;
+  object-fit: cover;
+}
+.logo {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+.counter {
+  width: 10px;
+  height: 10px;
+  background: #0361e4;
+  border-radius: 100px;
+}
+
+@media only screen and (max-width: 420px) {
+  .logo {
+    height: 80px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .icon {
+    height: 40px;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .logo {
+    height: 75px;
+    width: 100%;
+  }
+  .icon {
+    height: 35px;
+    width: 80%;
+  }
+}

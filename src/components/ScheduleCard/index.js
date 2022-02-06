@@ -2,10 +2,12 @@ import { selectFlight } from 'actions/flightSelectedActions';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ButtonsActions } from './ButtonsActions';
+import { useNavigate } from "react-router-dom";
 
 
 const ScheduleCard = ({ day, schedule }) => {
   const dispatch = useDispatch();
+  const history = useNavigate();
   const [count, setCount] = useState(0);
 
   const handleSelectSchedule = ({ element, day, index, count }) => {
@@ -16,6 +18,7 @@ const ScheduleCard = ({ day, schedule }) => {
       index
     };
     dispatch(selectFlight(body));
+    // history('reservaciones')
   };
 
   return (

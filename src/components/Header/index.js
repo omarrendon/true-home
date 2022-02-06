@@ -1,17 +1,29 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from "../../assets/truehome-1.png";
+import PlaneCart from "../../assets/cart.png";
+import style from './styles.module.css';
+import { useSelector } from 'react-redux';
+
 
 const Header = () => {
+  const { flights } = useSelector(state => state.flightSelect);
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to="/" exact='true'>Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/reservaciones" exact='true'>Reservaciones</NavLink>
-        </li>
-      </ul>
+    <nav className={style.nav}>
+      <div>
+        <NavLink to="/" exact='true'>
+          <img className={style.logo} src={Logo} alt='true-home' />
+        </NavLink>
+      </div>
+      <div>
+        {flights?.length > 0 && (
+          <div className={style.counter}></div>
+        )}
+        <NavLink to="/reservaciones" exact='true'>
+          <img className={style.icon} src={PlaneCart} alt='true-home' />
+          {/* <span className={style.reservas}>Mis reservas</span> */}
+        </NavLink>
+      </div>
     </nav>
   );
 };
