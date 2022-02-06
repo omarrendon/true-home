@@ -27,9 +27,11 @@ const PriceCard = ({
             <p>hora de abordar {el.entry}</p>
             <p>hora de llegada {el.arrival}</p>
             <p>precio : ${el.price}</p>
+            <p>Total : </p>  {(passengers * el.price)}
           </div>
         ))
       }
+      
 
     </div>
   );
