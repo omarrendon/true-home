@@ -1,18 +1,30 @@
+import { removeFlight } from 'actions/flightSelectedActions';
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const PriceCard = ({
   origin,
   destiny,
   day,
   schedule,
+  index,
   passengers,
 }) => {
   const [arrays, setArrays] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (schedule)
       setArrays([schedule])
   }, [schedule]);
+
+  const handleRemoveFlight = () => {
+    const item = {
+      day,
+      index
+    };
+    dispatch(removeFlight(item));
+  };
 
   return (
     <div style={{ border: '1px solid red', margin: '12px' }}>
@@ -31,8 +43,9 @@ const PriceCard = ({
           </div>
         ))
       }
-      
-
+      <button onClick={handleRemoveFlight}>
+        Eliminar
+      </button>
     </div>
   );
 };

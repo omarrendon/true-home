@@ -3,6 +3,7 @@ import {
   LOADING_FLIGHT_SELECT,
   SELECT_DESTINY_FLIGHT_SELECT_SUCCESS,
   SELECT_FLIGHT,
+  SELECT_FLIGHT_REMOVE,
   SELECT_ORIGIN_FLIGHT_SELECT_SUCCESS,
 } from "actions/flightSelectedActions";
 
@@ -35,16 +36,24 @@ const flightSelectedReducer = (state = initialState, action) => {
           isLoading: false,
           flights: state.flights.map((item) =>
             item.index === action.payload.index && item.day === action.payload.day
-              ? { ...item, passengers: action.payload.passengers}
+              ? { ...item, passengers: action.payload.passengers }
               : item
           )
         }
       }
       else return {
         ...state,
-        isLoading:false,
+        isLoading: false,
         flights: [...state.flights, action.payload]
       };
+    case SELECT_FLIGHT_REMOVE:
+      const { index} = action.payload;
+      const items = state.flights.filter((item) => item.index !== index);
+      return {
+        ...state,
+        flights: items,
+      };      
+
     case SELECT_DESTINY_FLIGHT_SELECT_SUCCESS:
       return {
         ...state,
