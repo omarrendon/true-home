@@ -15,7 +15,7 @@ const PriceCard = ({
   }, [schedule]);
 
   return (
-    <div style={{ border: '1px solid red', margin: '10px' }}>
+    <div style={{ border: '1px solid red', margin: '12px' }}>
       <p>day:{day}</p>
       <p>pasajeros:{passengers}</p>
       <p>orign: {origin}</p>
