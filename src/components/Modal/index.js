@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from './Modal.module.css';
 
-function Modal({ showModal, setShowModal, title, content }) {
+function Modal({ showModal, setShowModal, title, content, showClose }) {
   const isOpenModal = showModal ? (style.displayBlock) : (style.displayNone);
 
   return (
@@ -9,16 +9,18 @@ function Modal({ showModal, setShowModal, title, content }) {
       <section className={style.modalMain}>
         <h2>{title}</h2>
         <div className={style.modalContent}>
-        {content}
+          {content}
         </div>
-        <div className={style.buttonContainer}>
-          <button
-            onClick={setShowModal}
-            className={style.button}
-          >
-            Cerrar
-          </button>
-        </div>
+        {!showClose && (
+          <div className={style.buttonContainer}>
+            <button
+              onClick={setShowModal}
+              className={style.button}
+            >
+              Cerrar
+            </button>
+          </div>
+        )}
       </section>
     </div>
   );

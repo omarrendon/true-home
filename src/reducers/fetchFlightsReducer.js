@@ -21,6 +21,20 @@ const initialState = {
 const fetchFlightsReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_FLIGHTS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        flights: action.payload,
+      };
+    case FETCH_FLIGHTS_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        modalError: {
+          show: false,
+          message: 'Error al momento de realizar la petición.'
+        },
+      };
     case LOADING_FETCH_FLIGHTS:
       return {
         ...state,

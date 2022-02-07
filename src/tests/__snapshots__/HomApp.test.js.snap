@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test al componente <Home/> dbe dee mostrarse el componente Home 1`] = `
+<div
+  className="homeContainer"
+>
+  <h2
+    className="titleHome"
+  >
+    Selecciona tu vuelo
+  </h2>
+  <SearchBarFlight>
+    <Origin />
+    <Destiny />
+  </SearchBarFlight>
+  <ScheduleList />
+</div>
+`;

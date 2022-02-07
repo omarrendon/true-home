@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const LOADING_FETCH_FLIGHTS = 'LOADING_FETCH_FLIGHTS';
 export const CLOSE_MODALS_FETCH_FLIGHTS = 'CLOSE_MODALS_FETCH_FLIGHTS';
 export const FETCH_FLIGHTS_SUCCESS = 'FETCH_FLIGHTS_SUCCESS';
@@ -14,7 +16,13 @@ const closeModals = () => ({
 export const fetchFlights = (data) => {
   return async (dispacth) => {
     try {
+      const URL = 'https://server-test-schedule.herokuapp.com/schedules';
       dispacth(loading());
+      const getData = await axios.get(URL);
+      console.log('DATA', getData);
+      const { data } = getData.data;
+      console.log('data 2', data);
+      dispacth(fetchFlightsSuccess(data));
     } catch (error) {
       console.log('ERROR IN FETCH FLIGHTS => ', error);
       dispacth(fetchFlightsError(error));

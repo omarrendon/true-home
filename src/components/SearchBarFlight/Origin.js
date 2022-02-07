@@ -9,11 +9,12 @@ import originPlane from '../../assets/plane2.png';
 const Origin = () => {
   const dispatch = useDispatch();
   const { origin } = useSelector(state => state.flightSelect);
+  const { flights } = useSelector(state => state.flights);
   const [dataOrigin, setdataOrigin] = useState([]);
 
   useEffect(() => {
-    setdataOrigin(fakeData);
-  }, []);
+    setdataOrigin(flights);
+  }, [flights]);
 
   const handleSelectOrigin = (event) => dispatch(selectOrigin(event.target.value));
 
