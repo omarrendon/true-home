@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from "../../assets/truehome-1.png";
-import PlaneCart from "../../assets/cart.png";
+import PlaneCart from "../../assets/bolsa.png";
 import style from './styles.module.css';
 import { useSelector } from 'react-redux';
 
@@ -21,7 +21,6 @@ const Header = () => {
         )}
         <NavLink to="/reservaciones" exact='true'>
           <img className={style.icon} src={PlaneCart} alt='true-home' />
-          {/* <span className={style.reservas}>Mis reservas</span> */}
         </NavLink>
       </div>
     </nav>

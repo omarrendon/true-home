@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ButtonsActions } from './ButtonsActions';
 import { useNavigate } from "react-router-dom";
-
+import style from './ScheduleCard.module.css';
 
 const ScheduleCard = ({ day, schedule }) => {
   const dispatch = useDispatch();
@@ -23,26 +23,24 @@ const ScheduleCard = ({ day, schedule }) => {
 
   return (
     <div
-      style={{
-        padding: '20px',
-        border: '1px solid red',
-        margin: '10px'
-      }}>
-      <p>dia:  {day}</p>
+      className={style.cardContainer}
+    >
       {
         schedule?.length > 0 ? (
           schedule.map((element, index) => (
             <div
               key={index}
-              style={{
-                border: '1px solid green',
-                padding: '20px',
-                margin: '10px'
-              }}
+              className={style.card}
             >
-              <p>Arribo : {element.entry}</p>
-              <p>Llegada : {element.arrival}</p>
-              <p>precio : {element.price}</p>
+              <div className={style.cardHeader}>
+                <h2>{day}</h2>
+                <h4>${element.price}</h4>
+              </div>
+              <div className={style.cardHours}>
+                <h4>Partida : {element.entry}</h4>
+                <h4>Llegada : {element.arrival}</h4>
+              </div>
+
               <ButtonsActions
                 setCount={setCount}
                 handleSelectSchedule={() => handleSelectSchedule({ element, day, index, count })}

@@ -1,41 +1,136 @@
-.originContainer {
-  border: 1px solid red;
-  display: flex;
-  flex-direction: row;
-}
-.selectInput {
-  border-radius: 10px;
-  border: 2px solid #9e9e9e;
-  padding: 10px;
-  width: 500px;
-  height: 70px;
-  font-size: 1.2em;
-}
-.imageContainer {
-  padding-top: 5px;
-  margin-left: -100px;
-}
-img {
-  object-fit: cover;
-  width: 100%;
-  height: 60px;
-}
 
 @media only screen and (max-width: 390px) {
+  .principalContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  h4 {
+    color: #0361e4;
+  }
   .selectInput {
     border-radius: 10px;
     border: 2px solid #9e9e9e;
     padding: 10px;
-    width: 350px;
+    width: 95%;
     height: 50px;
-    font-size: 1em;
+    font-size: 1.1em;
+    margin-left: 10px;
   }
   .imageContainer {
-   display: none;
+    display: none;
   }
   img {
     object-fit: cover;
-    width: 100%;
-    height: 60px;
+    width: 50%;
+    height: 50px;
+  }
+  .originContainer {
+    display: flex;
+    flex-direction: row;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .principalContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  h4 {
+    color: #0361e4;
+  }
+  .selectInput {
+    border-radius: 10px;
+    border: 2px solid #9e9e9e;
+    padding: 10px;
+    width: 95%;
+    height: 50px;
+    font-size: 1.1em;
+    margin-left: 10px;
+  }
+  .imageContainer {
+    display: none;
+  }
+  img {
+    object-fit: cover;
+    width: 50%;
+    height: 50px;
+  }
+  .originContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .principalContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  h4 {
+    color: #0361e4;
+  }
+  .selectInput {
+    border-radius: 10px;
+    border: 2px solid #9e9e9e;
+    padding: 10px;
+    width: 95%;
+    height: 50px;
+    font-size: 1.1em;
+    margin-left: 10px;
+  }
+  .imageContainer {
+    display: none;
+  }
+  img {
+    object-fit: cover;
+    width: 50%;
+    height: 50px;
+  }
+  .originContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 761px) {
+  .principalContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    /* border: 1px solid red; */
+    padding: 0px 10%
+  }
+  h4 {
+    color: #0361e4;
+  }
+  .selectInput {
+    border-radius: 10px;
+    border: 2px solid #9e9e9e;
+    padding: 10px;
+    width: 70%;
+    height: 50px;
+    font-size: 1.1em;
+    margin-left: 10px;
+  }
+  .imageContainer {
+    margin-left: -100px;
+    padding-top: 5px
+  }
+  img {
+    object-fit: cover;
+    width: 130%;
+    height: 40px;
+    background-color: #fff;
+  }
+  .originContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+

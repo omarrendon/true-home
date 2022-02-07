@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch} from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { flightReservation, removeAllReservation } from 'actions/flightSelectedActions';
+import { useNavigate } from "react-router-dom";
 import Modal from 'components/Modal';
 import ScheduleList from 'components/ScheduleList';
 import Totalpayment from 'components/TotalPayment';
-import { flightReservation, removeAllReservation } from 'actions/flightSelectedActions';
-import { useNavigate } from "react-router-dom";
-
+import style from './index.module.css';
 
 const Reservation = () => {
   const { flights, reservationData } = useSelector(state => state.flightSelect);
@@ -26,7 +25,7 @@ const Reservation = () => {
   });
 
   useEffect(() => {
-    if(reservationData?.name) {
+    if (reservationData?.name) {
       setShowModal(false);
       setshowModalReservation(true);
     }
@@ -119,10 +118,32 @@ const Reservation = () => {
   }
 
   return (
-    <div>
-      Reservation page
+    <div className={style.homeContainer}>
+      <div className={style.reservationTitleContainer}>
+        <h2 className={style.titleHome}>Mis reservaciones</h2>
+        <button
+          disabled={flights.length > 0 ? false : true}
+          className={flights.length > 0 ? style.btn : style.btnDisable}
+          onClick={() => dispatch(removeAllReservation())}
+        >
+          Eliminar todos
+        </button>
+      </div>
+      {flights.length <= 0 && (
+        <div className={style.notFoundContainer}>
+          <h4>Aun no tienes reservaciones</h4>
+          <button
+            onClick={() => history('/')}
+            className={style.btnGoHome}
+          >
+            Hacer una reservación
+          </button>
+        </div>
+      )}
       <ScheduleList reservation />
-      <Totalpayment flights={flights} changeStateModal={() => setShowModal(true)} />
+      {flights.length > 0 && (
+        <Totalpayment flights={flights} changeStateModal={() => setShowModal(true)} />
+      )}
       {modalConfirmation()}
       {modalReservationrender()}
     </div>

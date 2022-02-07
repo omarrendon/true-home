@@ -1,0 +1,107 @@
+.homeContainer {
+  margin-top: 130px;
+  width: 100%;
+  height: auto;
+}
+.reservationTitleContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+h2 {
+  padding-left: 20px;
+}
+.notFoundContainer {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h4 {
+  color: #0361e4;
+  font-size: 1.3em;
+}
+.btnGoHome {
+  border: none;
+  border-radius: 10px;
+  width: 20%;
+  padding: 20px;
+  background-color: #0361e4;
+  color: #ffff;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+@media only screen and (max-width: 420px) {
+  .btnGoHome {
+    width: 70%;
+  }
+  .btnDisable {
+    border: none;
+    border-radius: 5px;
+    margin-right: 3px;
+    height: 30px;
+    margin-top: 20px;
+  }
+  .btn {
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    height: 30px;
+    margin-top: 20px;
+    background-color: crimson;
+    color: #ffff;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .btnGoHome {
+    width: 70%;
+  }
+  .btnDisable {
+    border: none;
+    border-radius: 5px;
+    margin-right: 40px;
+    height: 40px;
+    margin-top: 20px;
+  }
+  .btn {
+    border: none;
+    border-radius: 5px;
+    margin-right: 40px;
+    height: 40px;
+    margin-top: 20px;
+    background-color: crimson;
+    color: #ffff;
+    font-weight: bold;
+    padding: 10px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .btnGoHome {
+    width: 30%;
+  }
+  .btnDisable {
+    border: none;
+    border-radius: 5px;
+    margin-right: 40px;
+    height: 50px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .btn {
+    border: none;
+    border-radius: 5px;
+    margin-right: 40px;
+    height: 40px;
+    margin-top: 20px;
+    background-color: crimson;
+    color: #ffff;
+    font-weight: bold;
+    padding: 10px;
+  }
+}

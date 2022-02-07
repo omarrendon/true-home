@@ -2,8 +2,6 @@ import { SearchBar } from 'components/SearchBarFlight';
 import ScheduleList from 'components/ScheduleList';
 import style from './home.module.css';
 
-
-
 const Home = () => {
 
   return (

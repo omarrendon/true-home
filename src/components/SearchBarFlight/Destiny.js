@@ -2,6 +2,9 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { fakeData } from 'example';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDestiny } from 'actions/flightSelectedActions';
+import styles from './SearchBar.module.css';
+import originArrive from '../../assets/plaeenArrive.png';
+
 
 const Destiny = () => {
   const { origin, destiny } = useSelector(state => state.flightSelect);
@@ -16,11 +19,14 @@ const Destiny = () => {
   const handleSelectDestiny = (event) => dispatch(selectDestiny(event.target.value));
 
   return (
-    <>
-      <label>Origen</label>
+    <div className={styles.originContainer}>
+      <div>
+        <h4>Destino</h4>
+      </div>
       <select
         name='origin'
         id='origin'
+        className={styles.selectInput}
         onChange={handleSelectDestiny}
         disabled={origin ? false : true}
       >
@@ -33,7 +39,10 @@ const Destiny = () => {
           </Fragment>
         ))}
       </select>
-    </>
+      <div className={styles.imageContainer}>
+        <img src={originArrive} />
+      </div>
+    </div>
   );
 };
 

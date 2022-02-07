@@ -1,8 +1,10 @@
 import React from 'react';
+import styles from './SearchBar.module.css';
+
 
 function SearchBarFlight({ children }) {
   return (
-    <div>
+    <div className={styles.principalContainer}>
       {children}
     </div>
   );

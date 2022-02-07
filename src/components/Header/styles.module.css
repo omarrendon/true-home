@@ -31,6 +31,7 @@
   border-radius: 100px;
 }
 
+
 @media only screen and (max-width: 420px) {
   .logo {
     height: 80px;
@@ -38,18 +39,28 @@
     object-fit: cover;
   }
   .icon {
-    height: 40px;
-    width: 90%;
+    height: 45px;
+    width: 45%;
+    padding-right: 50px;
+    object-fit: cover;
+  }
+  .counter{
+    display: none;
   }
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 391px) {
   .logo {
     height: 75px;
     width: 100%;
   }
   .icon {
-    height: 35px;
-    width: 80%;
+    height: 45px;
+    width: 30%;
+    object-fit: cover;
+    padding-left: 90px;
+  }
+  .counter {
+    display: none;
   }
 }

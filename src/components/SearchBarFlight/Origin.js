@@ -6,9 +6,6 @@ import { selectOrigin } from 'actions/flightSelectedActions';
 import styles from './SearchBar.module.css';
 import originPlane from '../../assets/plane2.png';
 
-
-
-
 const Origin = () => {
   const dispatch = useDispatch();
   const { origin } = useSelector(state => state.flightSelect);
@@ -22,6 +19,9 @@ const Origin = () => {
 
   return (
     <div className={styles.originContainer}>
+      <div>
+        <h4>Origen </h4>
+      </div>
       <select
         name='origin'
         id='origin'
