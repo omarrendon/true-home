@@ -17,12 +17,12 @@ const Reservation = () => {
   const [lastName, setlastName] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
-  const [errorForm, setErrorForm] = useState({
-    name: false,
-    lastName: false,
-    address: false,
-    email: false,
-  });
+
+  const [nameError, setNameError] = useState(false);
+  const [lastNameError, setLastNameError] = useState(false);
+  const [addressError, setAddressError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+
 
   useEffect(() => {
     if (reservationData?.name) {
@@ -31,11 +31,20 @@ const Reservation = () => {
     }
   }, [reservationData]);
 
+
   const handleSubmit = () => {
-    if (!name) setErrorForm({ name: true });
-    if (!lastName) setErrorForm({ lastName: true });
-    if (!address) setErrorForm({ address: true });
-    if (!email) setErrorForm({ email: true });
+    if (!name) {
+      setNameError(true);
+    } else setNameError(false);
+    if (!lastName) {
+      setLastNameError(true);
+    } else setLastNameError(false);
+    if (!address) {
+      setAddressError(true);
+    } else setAddressError(false);
+    if (!email) {
+      setEmailError(true);
+    } else setEmailError(false);
     if (!name || !lastName || !address || !email) return;
     const body = {
       name,
@@ -57,13 +66,21 @@ const Reservation = () => {
       <Modal
         showModal={showModalReservation}
         setShowModal={() => setshowModalReservation(false)}
-        title='Datos de reservación!'
+        title='Datos de reservación'
         content={
           <div>
-            <p>nombre {reservationData.name} {reservationData.lastName}</p>
-            <p>dirección {reservationData.address}</p>
-            <p>email {reservationData.email}</p>
-            <button onClick={handleFinishReservation}>Aceptar</button>
+            <p className={style.textNameTitle}>Nombre</p>
+            <p className={style.textName}>{reservationData.name} {reservationData.lastName}</p>
+            <p className={style.textNameTitle}>dirección</p>
+            <p className={style.textName}>{reservationData.address}</p>
+            <p className={style.textNameTitle}>email</p>
+            <p className={style.textName}>{reservationData.email}</p>
+            <button
+              onClick={handleFinishReservation}
+              className={style.btnConfirm}
+            >
+              Aceptar
+            </button>
           </div>
         }
       />
@@ -77,41 +94,53 @@ const Reservation = () => {
         setShowModal={() => setShowModal(false)}
         title='Reservación de vuelos'
         content={
-          <div>
-            <div>
-              <label>Nombres</label>
+          <>
+            <div className={style.inputContainer}>
+              <label className={style.inputLabel}>Nombres</label>
               <input
                 type='text'
+                className={style.input}
                 name='name'
                 onChange={(e) => setName(e.target.value)}
               />
-              {errorForm.name && (<p style={{ color: 'red' }}>Campo obligatorio</p>)}
+              {nameError && (<p style={{ color: 'red' }}>Campo obligatorio</p>)}
             </div>
-            <div>
-              <label>Apellidos</label>
+            <div className={style.inputContainer}>
+              <label className={style.inputLabel}>Apellidos</label>
               <input
                 type='text'
+                className={style.input}
                 onChange={(e) => setlastName(e.target.value)}
               />
+              {lastNameError && (<p style={{ color: 'red' }}>Campo obligatorio</p>)}
             </div>
-            <div>
-              <label>Dirección</label>
+            <div className={style.inputContainer}>
+              <label className={style.inputLabel}>Dirección</label>
               <input
                 type='text'
+                className={style.input}
                 onChange={(e) => setAddress(e.target.value)}
               />
+              {addressError && (<p style={{ color: 'red' }}>Campo obligatorio</p>)}
             </div>
-            <div>
-              <label>Correo electrónico</label>
+            <div className={style.inputContainer}>
+              <label className={style.inputLabel}>Correo electrónico</label>
               <input
                 type='text'
+                className={style.input}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {emailError && (<p style={{ color: 'red' }}>Campo obligatorio</p>)}
             </div>
             <div>
-              <button onClick={handleSubmit}>Reservar</button>
+              <button
+                onClick={handleSubmit}
+                className={style.btnConfirm}
+              >
+                Reservar
+              </button>
             </div>
-          </div>
+          </>
         }
       />
     )

@@ -20,7 +20,6 @@ const ScheduleList = ({ reservation }) => {
         flights.length > 0 ? (
           flights.map(({ day, schedule, index  , passengers }) => (
             <Fragment key={index}>
-
               <PriceCard
                 origin={origin}
                 destiny={destiny}

@@ -1,0 +1,168 @@
+@media only screen and (max-width: 420px) {
+  .cardContainer {
+    width: 100%;
+  }
+  .card {
+    border: none;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+  }
+  .cardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .people {
+    font-weight: bold;
+    padding-right: 50px;
+    padding-top: 10px;
+  }
+  .cardHours {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+  }
+  .cardHoursContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btnContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .btn {
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background: crimson;
+    color: #ffff;
+    font-weight: bold;
+    height: 30px;
+    width: 120px;
+  }
+}
+@media only screen and (max-width: 868px) {
+  .cardContainer {
+    width: 100%;
+  }
+  .card {
+    border: none;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+  }
+  .card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
+  .cardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .people {
+    font-weight: bold;
+    padding-right: 50px;
+    padding-top: 10px;
+  }
+  .cardHours {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+  }
+  .cardHoursContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btnContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .btn {
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background: crimson;
+    color: #ffff;
+    font-weight: bold;
+    height: 30px;
+    width: 120px;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (min-width: 869px) {
+  .cardContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    width: 60%;
+    border: none;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+  }
+  .card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
+  p{font-weight: bold;}
+  .cardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .people {
+    font-weight: bold;
+    padding-right: 50px;
+    padding-top: 10px;
+  }
+  .cardHours {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+  }
+  .cardHoursContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btnContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .btn {
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background: crimson;
+    color: #ffff;
+    font-weight: bold;
+    height: 30px;
+    width: 120px;
+    cursor: pointer;
+  }
+}

@@ -8,10 +8,13 @@ function Modal({ showModal, setShowModal, title, content }) {
     <div className={isOpenModal}>
       <section className={style.modalMain}>
         <h2>{title}</h2>
+        <div className={style.modalContent}>
         {content}
+        </div>
         <div className={style.buttonContainer}>
           <button
             onClick={setShowModal}
+            className={style.button}
           >
             Cerrar
           </button>

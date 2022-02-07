@@ -34,13 +34,12 @@ const ScheduleCard = ({ day, schedule }) => {
             >
               <div className={style.cardHeader}>
                 <h2>{day}</h2>
-                <h4>${element.price}</h4>
+                <h2>${element.price}</h2>
               </div>
               <div className={style.cardHours}>
-                <h4>Partida : {element.entry}</h4>
+                <h4>Ida : {element.entry}</h4>
                 <h4>Llegada : {element.arrival}</h4>
               </div>
-
               <ButtonsActions
                 setCount={setCount}
                 handleSelectSchedule={() => handleSelectSchedule({ element, day, index, count })}

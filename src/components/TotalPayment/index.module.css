@@ -6,6 +6,8 @@
     flex-direction: column;
     justify-content: end;
     align-items: flex-end;
+    margin-bottom: 50px;
+    margin-top: 20px;
   }
   .paymentTotal {
     margin-right: 30px;
@@ -21,6 +23,7 @@
     background: #0361e4;
     color: #ffff;
     font-size: 1em;
+    cursor: pointer;
     font-weight: bold;
   }
 }
@@ -32,6 +35,8 @@
     flex-direction: column;
     justify-content: end;
     align-items: flex-end;
+    margin-bottom: 50px;
+    margin-top: 20px;
   }
   .paymentTotal {
     margin-right: 30px;
@@ -48,6 +53,7 @@
     color: #ffff;
     font-size: 1em;
     font-weight: bold;
+    cursor: pointer;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -58,6 +64,8 @@
     flex-direction: column;
     justify-content: end;
     align-items: flex-end;
+    margin-bottom: 50px;
+    margin-top: 20px;
   }
   .paymentTotal {
     margin-right: 30px;
@@ -74,6 +82,7 @@
     color: #ffff;
     font-size: 1em;
     font-weight: bold;
+    cursor: pointer;
   }
 }
 @media only screen and (min-width: 769px) {
@@ -84,6 +93,8 @@
     flex-direction: column;
     justify-content: end;
     align-items: flex-end;
+    margin-bottom: 50px;
+    margin-top: 20px;
   }
   .paymentTotal {
     margin-right: 30px;
@@ -100,5 +111,6 @@
     color: #ffff;
     font-size: 1em;
     font-weight: bold;
+    cursor: pointer;
   }
 }

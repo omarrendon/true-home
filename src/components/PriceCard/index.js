@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { removeFlight } from 'actions/flightSelectedActions';
 import { useDispatch } from 'react-redux';
-
+import style from './index.module.css';
+import { ReactComponent as Person } from '../../assets/person.svg';
 const PriceCard = ({
   origin,
   destiny,
@@ -27,25 +28,42 @@ const PriceCard = ({
   };
 
   return (
-    <div style={{ border: '1px solid red', margin: '12px' }}>
-      <p>day:{day}</p>
-      <p>pasajeros:{passengers}</p>
-      <p>orign: {origin}</p>
-      <p>destino: {destiny}</p>
-      {
-        arrays.length > 0 &&
-        arrays.map((el) => (
-          <div key={el.id}>
-            <p>hora de abordar {el.entry}</p>
-            <p>hora de llegada {el.arrival}</p>
-            <p>precio : ${el.price}</p>
-            <p>Total : </p>  {(passengers * el.price)}
-          </div>
-        ))
-      }
-      <button onClick={handleRemoveFlight}>
-        Eliminar
-      </button>
+    <div className={style.cardContainer}>
+      <div className={style.card}>
+        <div className={style.cardHeader}>
+          <h2>{day}</h2>
+          <p className={style.people} >No. pasajeros: {passengers}</p>
+        </div>
+
+        <div className={style.cardHoursContainer}>
+          <p>Origen: {origin}</p>
+          <p>Destino: {destiny}</p>
+        </div>
+
+        {
+          arrays.length > 0 &&
+          arrays.map((el) => (
+            <div key={el.id}>
+              <div className={style.cardHours}>
+                <p>Abordar: {el.entry}</p>
+                <p>Llegada: {el.arrival}</p>
+              </div>
+              <div className={style.cardHours}>
+                <p>precio : ${el.price}</p>
+                <p>Total : ${(passengers * el.price)}</p>
+              </div>
+            </div>
+          ))
+        }
+        <div className={style.btnContainer}>
+          <button
+            onClick={handleRemoveFlight}
+            className={style.btn}
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
