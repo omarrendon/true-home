@@ -66,7 +66,7 @@ const Reservation = () => {
       <Modal
         showModal={showModalReservation}
         setShowModal={() => setshowModalReservation(false)}
-        title='Datos de reservación'
+        title='Gracias por tu reserva'
         content={
           <div>
             <p className={style.textNameTitle}>Nombre</p>
