@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/true-home/static/css/main.827c7a41.css",
-    "main.js": "/true-home/static/js/main.e48d8479.js",
+    "main.css": "/true-home/static/css/main.90168e8b.css",
+    "main.js": "/true-home/static/js/main.7de8f1ea.js",
     "static/js/787.11c519ad.chunk.js": "/true-home/static/js/787.11c519ad.chunk.js",
     "static/media/truehome-1.png": "/true-home/static/media/truehome-1.e99282317b156fb4e3d0.png",
     "static/media/cart.png": "/true-home/static/media/cart.eca5ee08f37494f3f691.png",
     "index.html": "/true-home/index.html",
-    "main.827c7a41.css.map": "/true-home/static/css/main.827c7a41.css.map",
-    "main.e48d8479.js.map": "/true-home/static/js/main.e48d8479.js.map",
+    "main.90168e8b.css.map": "/true-home/static/css/main.90168e8b.css.map",
+    "main.7de8f1ea.js.map": "/true-home/static/js/main.7de8f1ea.js.map",
     "787.11c519ad.chunk.js.map": "/true-home/static/js/787.11c519ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.827c7a41.css",
-    "static/js/main.e48d8479.js"
+    "static/css/main.90168e8b.css",
+    "static/js/main.7de8f1ea.js"
   ]
 }
