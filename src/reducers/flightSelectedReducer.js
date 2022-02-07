@@ -5,6 +5,8 @@ import {
   SELECT_FLIGHT,
   SELECT_FLIGHT_REMOVE,
   SELECT_ORIGIN_FLIGHT_SELECT_SUCCESS,
+  SELECT_FLIGHT_RESERVATION,
+  SELECT_FLIGHT_REMOVE_ALL
 } from "actions/flightSelectedActions";
 
 const initialState = {
@@ -18,6 +20,7 @@ const initialState = {
     show: false,
     message: ''
   },
+  reservationData: [],
   modalError: {
     show: false,
     message: ''
@@ -52,8 +55,21 @@ const flightSelectedReducer = (state = initialState, action) => {
       return {
         ...state,
         flights: items,
-      };      
-
+      };
+    case SELECT_FLIGHT_REMOVE_ALL:
+      return {
+        ...state,
+        isLoading: false,
+        origin:'',
+        destiny: '',
+        flights: [],
+      };
+    case SELECT_FLIGHT_RESERVATION:
+      return {
+        ...state,
+        isLoading: false,
+        reservationData: action.payload,
+      };
     case SELECT_DESTINY_FLIGHT_SELECT_SUCCESS:
       return {
         ...state,

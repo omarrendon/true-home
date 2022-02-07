@@ -1,14 +1,130 @@
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch} from 'react-redux';
+
+import Modal from 'components/Modal';
 import ScheduleList from 'components/ScheduleList';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import Totalpayment from 'components/TotalPayment';
+import { flightReservation, removeAllReservation } from 'actions/flightSelectedActions';
+import { useNavigate } from "react-router-dom";
+
 
 const Reservation = () => {
-  const { flights } = useSelector(state => state.flightSelect);
-  // console.log('state', flights);
+  const { flights, reservationData } = useSelector(state => state.flightSelect);
+  const dispatch = useDispatch();
+  const history = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const [showModalReservation, setshowModalReservation] = useState(false);
+  const [name, setName] = useState('');
+  const [lastName, setlastName] = useState('');
+  const [address, setAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [errorForm, setErrorForm] = useState({
+    name: false,
+    lastName: false,
+    address: false,
+    email: false,
+  });
+
+  useEffect(() => {
+    if(reservationData?.name) {
+      setShowModal(false);
+      setshowModalReservation(true);
+    }
+  }, [reservationData]);
+
+  const handleSubmit = () => {
+    if (!name) setErrorForm({ name: true });
+    if (!lastName) setErrorForm({ lastName: true });
+    if (!address) setErrorForm({ address: true });
+    if (!email) setErrorForm({ email: true });
+    if (!name || !lastName || !address || !email) return;
+    const body = {
+      name,
+      lastName,
+      address,
+      email
+    };
+    dispatch(flightReservation(body));
+  };
+
+  const handleFinishReservation = () => {
+    dispatch(removeAllReservation());
+    history('/');
+    setshowModalReservation(false);
+  };
+
+  const modalReservationrender = () => {
+    return (
+      <Modal
+        showModal={showModalReservation}
+        setShowModal={() => setshowModalReservation(false)}
+        title='Datos de reservación!'
+        content={
+          <div>
+            <p>nombre {reservationData.name} {reservationData.lastName}</p>
+            <p>dirección {reservationData.address}</p>
+            <p>email {reservationData.email}</p>
+            <button onClick={handleFinishReservation}>Aceptar</button>
+          </div>
+        }
+      />
+    );
+  };
+
+  const modalConfirmation = () => {
+    return (
+      <Modal
+        showModal={showModal}
+        setShowModal={() => setShowModal(false)}
+        title='Reservación de vuelos'
+        content={
+          <div>
+            <div>
+              <label>Nombres</label>
+              <input
+                type='text'
+                name='name'
+                onChange={(e) => setName(e.target.value)}
+              />
+              {errorForm.name && (<p style={{ color: 'red' }}>Campo obligatorio</p>)}
+            </div>
+            <div>
+              <label>Apellidos</label>
+              <input
+                type='text'
+                onChange={(e) => setlastName(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Dirección</label>
+              <input
+                type='text'
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Correo electrónico</label>
+              <input
+                type='text'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <button onClick={handleSubmit}>Reservar</button>
+            </div>
+          </div>
+        }
+      />
+    )
+  }
+
   return (
     <div>
       Reservation page
-      <ScheduleList reservation />  
+      <ScheduleList reservation />
+      <Totalpayment flights={flights} changeStateModal={() => setShowModal(true)} />
+      {modalConfirmation()}
+      {modalReservationrender()}
     </div>
   );
 };
